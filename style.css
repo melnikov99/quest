@@ -1,0 +1,497 @@
+/* ==========================================
+   Tokens
+   ========================================== */
+
+:root {
+    /* Brand */
+    --gold:        #c9973a;
+    --gold-light:  #e4b96a;
+    --gold-dark:   #8b6420;
+
+    /* Surfaces */
+    --bg:          #13100b;
+    --card-bg:     #1e1810;
+    --card-border: #3a2e1a;
+    --input-bg:    #2a2115;
+
+    /* Text */
+    --text:        #ede0c4;
+    --text-dim:    #9a8a6a;
+    --text-muted:  #5c4e34;
+
+    /* State */
+    --success:     #7ec87e;
+    --error:       #e06060;
+
+    /* Geometry */
+    --radius:      14px;
+    --radius-sm:   9px;
+
+    /* Animation */
+    --t:           .2s ease;
+}
+
+/* ==========================================
+   Reset
+   ========================================== */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    overflow-y: auto;
+}
+
+/* ==========================================
+   Base
+   ========================================== */
+
+body {
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    display: block;
+
+    overflow-y: auto;
+
+    padding: 24px 20px 40px;
+    padding-bottom: calc(40px + env(safe-area-inset-bottom));
+}
+
+
+/* ==========================================
+   App shell
+   ========================================== */
+
+#app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+}
+
+/* ==========================================
+   Card
+   ========================================== */
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    box-shadow:
+        0 0 0 1px rgba(201,151,58,.08),
+        0 20px 60px rgba(0,0,0,.6);
+}
+
+/* ==========================================
+   Logo
+   ========================================== */
+
+#logo {
+    width: 88px;
+    height: 88px;
+    display: block;
+    margin: 0 auto 28px;
+    border-radius: 50%;
+    box-shadow: 0 0 24px rgba(201,151,58,.3);
+}
+
+/* ==========================================
+   Typography — mission card
+   ========================================== */
+
+h1 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+#missionText {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+    white-space: pre-line;
+}
+
+/* ==========================================
+   Geo section
+   ========================================== */
+
+#geoSection {
+    margin-bottom: 24px;
+}
+
+#geoStatus {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+#hintBox, #missionHintBox {
+
+    margin-top: 16px;
+
+    background: rgba(201,151,58,.08);
+
+    border-left: 3px solid var(--gold);
+
+    padding: 14px 16px;
+
+    border-radius: var(--radius-sm);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: var(--text-dim);
+
+    white-space: pre-line;
+
+}
+
+/* ==========================================
+   Answer section
+   ========================================== */
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--card-border);
+    background: var(--input-bg);
+    color: var(--text);
+    font-size: 17px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color var(--t), box-shadow var(--t);
+    margin-bottom: 16px;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus {
+    border-color: var(--gold-dark);
+    box-shadow: 0 0 0 3px rgba(201,151,58,.15);
+}
+
+input:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   Buttons
+   ========================================== */
+
+button {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: filter var(--t), transform var(--t);
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.primary {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+    color: #13100b;
+    box-shadow: 0 4px 20px rgba(201,151,58,.35);
+}
+
+.primary:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.secondary {
+    margin-top: 12px;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--text-dim);
+}
+
+.secondary:hover {
+    background: rgba(255,255,255,.04);
+    border-color: var(--gold-dark);
+    color: var(--text);
+}
+
+/* ==========================================
+   Message
+   ========================================== */
+
+#message {
+    min-height: 24px;
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+.success { color: var(--success); }
+.error   { color: var(--error);   }
+
+/* ==========================================
+   Progress
+   ========================================== */
+
+#progressContainer {
+    margin-top: 32px;
+}
+
+#progressBar {
+    height: 6px;
+    background: rgba(255,255,255,.07);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+    border-radius: 999px;
+    transition: width .4s ease;
+}
+
+#progressText {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   Mission navigation
+   ========================================== */
+
+#missionNav {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    margin-top: 0;
+    flex: 1;
+    height: 46px;
+    font-size: 14px;
+}
+
+/* ==========================================
+   Finish screen
+   ========================================== */
+
+#finishScreen {
+    position: fixed;
+    inset: 0;
+    background: rgba(13,10,7,.97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.finishImage {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    margin-bottom: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.5);
+}
+
+/* ==========================================
+   Welcome screen
+   ========================================== */
+
+#welcomeScreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 200;
+    overflow: hidden;
+}
+
+#welcomeBg {
+    position: absolute;
+    inset: 0;
+    background:
+        url("img/logo.png") center center / cover no-repeat;
+    /* darken bottom so card text is readable */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,.0) 100%);
+    mask-image:         linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,.0) 100%);
+}
+
+/* subtle vignette overlay */
+#welcomeScreen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.15) 0%,
+        rgba(0,0,0,.55) 55%,
+        rgba(0,0,0,.93) 100%
+    );
+    z-index: 0;
+}
+
+#welcomeCard {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    padding: 36px 28px 40px;
+    text-align: center;
+}
+
+#welcomeEyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+}
+
+#welcomeTitle {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 16px rgba(0,0,0,.7);
+}
+
+#welcomeSubtitle {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+}
+
+#welcomeDisclaimer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+}
+
+#startButton.primary {
+    font-size: 16px;
+    height: 56px;
+    border-radius: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    box-shadow: 0 6px 32px rgba(201,151,58,.5);
+}
+
+#welcomeCopyright {
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: .06em;
+}
+
+/* ==========================================
+   Utility
+   ========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   Mobile
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 16px 14px 32px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    #welcomeTitle {
+        font-size: 28px;
+    }
+
+    #missionText {
+        font-size: 15px;
+    }
+
+    input, button {
+        font-size: 16px;
+    }
+}

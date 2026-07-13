@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Квест</title>
+
+    <meta name="theme-color" content="#2563eb">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+    <!-- Карточка -->
+    <main class="card">
+
+        <!-- Логотип -->
+        <img
+            src="img/logo.png"
+            alt="Логотип"
+            id="logo"
+        >
+
+        <!-- Заголовок -->
+        <h1 id="missionNumber"></h1>
+
+        <!-- Название -->
+        <h2 id="missionTitle"></h2>
+
+        <!-- Описание -->
+        <div id="missionText"></div>
+
+        <!-- Геолокация -->
+        <section id="geoSection" class="hidden">
+
+            <button id="geoButton" class="primary">
+                Проверить местоположение
+            </button>
+
+            <div id="geoStatus"></div>
+            <div id="hintBox" class="hidden"></div>
+
+        </section>
+
+        <!-- Ввод ответа -->
+        <section id="answerSection">
+
+            <label for="answerInput">
+                Ответ
+            </label>
+
+            <input
+                id="answerInput"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+            >
+
+            <button
+                id="checkButton"
+                class="primary"
+            >
+                Проверить
+            </button>
+
+        </section>
+
+        <!-- Сообщение -->
+        <div id="message"></div>
+
+        <div id="missionHintBox" class="hidden"></div>
+
+        <!-- Прогресс -->
+        <div id="progressContainer">
+
+            <div id="progressBar">
+                <div id="progressFill"></div>
+            </div>
+
+            <div id="progressText"></div>
+
+        </div>
+
+        <!-- Навигация -->
+        <div id="missionNav">
+
+            <button id="prevButton" class="secondary nav-btn">
+                ← Назад
+            </button>
+
+            <button id="nextButton" class="primary nav-btn hidden">
+                Далее →
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<!-- Экран приветствия -->
+
+<div id="welcomeScreen" class="hidden">
+
+    <div id="welcomeBg"></div>
+
+    <div id="welcomeCard">
+
+        <p id="welcomeEyebrow">Pyatishkin Quest Labs</p>
+
+        <h2 id="welcomeTitle">Добро пожаловать<br>в игру</h2>
+
+        <p id="welcomeSubtitle">Дойди до конца и получи приз</p>
+
+        <p id="welcomeDisclaimer">⏱ Квест займёт 1–1.5 часа</p>
+
+        <button id="startButton" class="primary">
+            Начать приключение
+        </button>
+
+        <p id="welcomeCopyright">Pyatishkin Quest Labs, 2026 ©</p>
+
+    </div>
+
+</div>
+
+<!-- Экран победы -->
+
+<div
+    id="finishScreen"
+    class="hidden"
+>
+
+    <div class="card">
+
+        <img
+            src="img/finish.jpg"
+            alt=""
+            class="finishImage"
+        >
+
+        <h1>Поздравляем!</h1>
+
+        <button
+            id="prizeButton"
+            class="primary"
+        >
+            Получить приз
+        </button>
+
+        <div
+            id="prizeContainer"
+            class="hidden"
+        >
+            <img
+                src="img/prize.jpg"
+                alt=""
+                class="finishImage"
+            >
+        </div>
+
+        <button
+            id="restartButton"
+            class="secondary"
+        >
+            Начать заново
+        </button>
+
+    </div>
+
+</div>
+
+<script src="missions.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
