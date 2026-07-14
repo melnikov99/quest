@@ -110,12 +110,10 @@ answerInput.addEventListener("keydown", e => {
 
 function loadState() {
 
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = sessionStorage.getItem(STORAGE_KEY);
 
     if (!raw) {
-
         return structuredClone(INITIAL_STATE);
-
     }
 
     try {
@@ -132,12 +130,9 @@ function loadState() {
 
 function saveState() {
 
-    localStorage.setItem(
-
+    sessionStorage.setItem(
         STORAGE_KEY,
-
         JSON.stringify(state)
-
     );
 
 }
