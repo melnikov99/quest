@@ -307,9 +307,9 @@ function renderMission() {
 
     renderNav(mission);
 
-    if (!savedAnswer) {
-        answerInput.focus();
-    }
+    // if (!savedAnswer) {
+    //     answerInput.focus();
+    // }
 
 }
 
@@ -764,7 +764,7 @@ function unlockMissionAnswer(mission) {
     }
 
 
-    answerInput.focus();
+    // answerInput.focus();
 
 }
 
