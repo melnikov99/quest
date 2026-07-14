@@ -914,3 +914,4 @@ function buildCoordinates() {
     };
 
 }
+alert("APP VERSION 2");
