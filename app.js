@@ -747,8 +747,12 @@ function unlockMissionAnswer(mission) {
     checkButton.disabled = false;
 
 
+    // geoStatus.textContent =
+    //     "Место найдено.";
     geoStatus.textContent =
-        "Место найдено.";
+    `Расстояние: ${Math.round(distance)} м
+    Точность: ${Math.round(position.coords.accuracy)} м
+    Радиус: ${mission.geo.radius} м`;
 
 
     if (mission.hint) {
