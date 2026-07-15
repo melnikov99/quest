@@ -914,3 +914,23 @@ function buildCoordinates() {
     };
 
 }
+
+let _logoClickCount = 0;
+let _logoClickTimer = null;
+document.getElementById("logo").addEventListener("click", () => {
+    _logoClickCount++;
+    clearTimeout(_logoClickTimer);
+    _logoClickTimer = setTimeout(() => { _logoClickCount = 0; }, 600);
+
+    if (_logoClickCount >= 3) {
+        _logoClickCount = 0;
+        const mission = currentMission();
+        if (!mission || !mission.geo) return;
+        if (state.answers[mission.id] !== undefined) return;
+
+        const code = prompt("");
+        if (code && code.trim().toLowerCase() === "popi") {
+            unlockMissionAnswer(mission);
+        }
+    }
+});
